@@ -46,6 +46,10 @@
     "commit": "3cfd8e05ce118ef2612532b606e8f6c884708ee5"
   },
   "_source": "https://github.com/predixDev/px-iconography-design.git",
+<<<<<<< HEAD
   "_target": "~0.3.5",
+=======
+  "_target": "^0.3.8",
+>>>>>>> e3ae0f60fa7c166e8f5e1971c412ca24f30ee5d4
   "_originalSource": "px-iconography-design"
 }

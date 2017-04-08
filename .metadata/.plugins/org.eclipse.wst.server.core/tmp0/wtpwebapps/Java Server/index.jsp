@@ -53,9 +53,15 @@
 
 	<div id="container">
 
+
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
     <style>
+    
+	  table, th, td {
+	  border: 1px solid black;
+	  }
+		
       .multiselect{
         width: 200px;
       }
@@ -108,7 +114,7 @@
 		      <div class = "multiselect">
 		
 		          <!-- New class for tags checkboxes -->
-		          <div class = "selectBox" onclick = "showCheckboxes()">
+		        <div class = "selectBox" onclick = "showCheckboxes()">
 		                  <select>
 		                      <option value="Tags">Tags</option>
 		                  </select>
