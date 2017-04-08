@@ -234,6 +234,7 @@ app.controller('mainController', function($scope, $http) {
     
     $scope.selectEngine = function(engineID)
     {
+    	console.log(engineID);
     	for(i = 0; i < $scope.engines.length; i ++)
     		{
     		if($scope.engines[i].ID == engineID)
@@ -253,7 +254,7 @@ app.controller('mainController', function($scope, $http) {
     /*
      * Get data from Predix - send the http request that will be mapped in our controller
      */
-    function getLimitedDataPoints(){
+    var getLimitedDataPoints = function (){
     	// test
     	// Get the UAA authentication token
     	$http.get('/springmvc-helloworld/getAuthToken/')
@@ -283,7 +284,6 @@ app.controller('mainController', function($scope, $http) {
 			$http(req)
 			.then(
 				function(data){
-					console.log(data);
 					var engineArray = data.data;
 					var matchedTag = null;
 					var matchedEngine = null;
@@ -310,7 +310,9 @@ app.controller('mainController', function($scope, $http) {
 								}
 							}
 						}
-					}
+					};
+
+				  	formatGraphData();
 				}, 
 				function(data){
 					console.log("Could not get the Predix data due to " + data);
@@ -326,7 +328,7 @@ app.controller('mainController', function($scope, $http) {
     	
     }
     
-    function getAggregateDataPoints(){
+    var getAggregateDataPoints = function (){
     	// test
     	// Get the UAA authentication token
     	$http.get('/springmvc-helloworld/getAuthToken/')
@@ -359,6 +361,46 @@ app.controller('mainController', function($scope, $http) {
     		console.log("Could not get the Auth Token due to " + data);
     	}); 
     	
+    }
+    
+    var formatGraphData = function(){
+    	console.log("Here");
+    	$scope.graphData = [];
+    	var iteration = 0;
+    	for(i = 0; i < $scope.engines; i ++)
+		{
+    		if($scope.engines[i].Selected)
+			{
+    			for(j = 0; j < $scope.dataTags; j++)
+    			{
+        			if($scope.dataTags[j].Selected)
+    				{
+        				var values = $scope.engines[i].Data[j].Values;
+        				if(values)
+    					{
+        					var yText = "y" + iteration;
+        					for(k = 0; k < values.length; k ++)
+    						{
+        						var set = values[0][k];
+        						var x = set[0];
+        						var y = set[1];
+        						var indexOfElement = $scope.graphData.find(function(a){return a.x == x});
+        						if(indexOfElement)
+        							$scope.graphData[indexOfElement].yText = y;
+        						else
+    							{
+        							var newCoordinates = {'x': x, yText: y};
+        							$scope.graphData.push(newCoordinates);
+    							}
+    						}
+        					iteration++;
+    					}
+    				}
+    			}
+			}
+    		
+    		
+		}
     }
     
     // Call method on page load
