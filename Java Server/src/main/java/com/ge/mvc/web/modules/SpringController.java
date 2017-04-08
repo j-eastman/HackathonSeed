@@ -77,8 +77,7 @@ class SpringController {
 		{
 			result[i] = springService.getLimitedDataPoints(tagNames, body.getString("startTime"), engines[i]);
 		}
-		return result.toString();
-		//return springService.getLimitedDataPoints(tagNames, body.getString("startTime"), null);
+		return new JSONArray(result).toString().replaceAll("^\"|\"$", "");
 	}
 	
 	/*

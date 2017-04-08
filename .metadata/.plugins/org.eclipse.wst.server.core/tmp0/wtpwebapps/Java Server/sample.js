@@ -13,16 +13,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/2afbd553-8d7f-4c59-8346-d93a92b177ba',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -31,16 +24,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/cb27ef1b-b0de-494d-877f-32e95b757651',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -49,16 +35,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/86d23000-3820-4d56-b755-6ea1302ddc4b',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -67,16 +46,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/892e596d-3sds-4c9e-9094-078245931785',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -85,16 +57,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/049bb0c2-fca8-4fc6-af28-558c57a1de86',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -103,16 +68,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/14727426-d32e-4feb-a2ec-a89f8c5ab100',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -121,16 +79,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/28880fbe-cb5a-40a7-a885-de4683528fbe',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -139,16 +90,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/2afbd546-8d7f-4c59-8346-d93a92b177ba',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -157,16 +101,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/6f3cd880-2ad8-43ae-a194-08e2400be4bd',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -175,16 +112,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/86d23000-3820-1234-b755-6ea1302ddc4b',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -193,16 +123,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/892e596d-e734-4c9e-9094-078245931785',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -211,16 +134,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/8c12e00a-7d73-42a5-aef3-8f87298d6748',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -229,16 +145,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/99fefd4b-6503-4e9f-81e4-4a35acd336a8',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -247,16 +156,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/af1135b8-e3a7-4938-967d-4783a8ebafe5',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			},
 			{
@@ -265,16 +167,9 @@ app.controller('mainController', function($scope, $http) {
 				PredixReference: '/engine/cd37ef1b-b0de-494d-877f-32e95b757651',
 				Selected: 0,
 				Data: [
-					{TagID: 1, Values: null},
-					{TagID: 2, Values: null},
-					{TagID: 3, Values: null},
-					{TagID: 4, Values: null},
-					{TagID: 5, Values: null},
-					{TagID: 6, Values: null},
-					{TagID: 7, Values: null},
-					{TagID: 8, Values: null},
-					{TagID: 9, Values: null},
-					{TagID: 10, Values: null}
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
 				]
 			}
 		];
@@ -337,6 +232,24 @@ app.controller('mainController', function($scope, $http) {
 	$scope.getAggregateDataPoints = getAggregateDataPoints;
     $scope.token = "";
     
+    $scope.selectEngine = function(engineID)
+    {
+    	for(i = 0; i < $scope.engines.length; i ++)
+    		{
+    		if($scope.engines[i].ID == engineID)
+    			$scope.engines[i].Selected = !$scope.engines[i].Selected;
+    		}
+    	
+    }
+    $scope.selectTag = function(tagID)
+    {
+    	for(i = 0; i < $scope.engines.length; i ++)
+    		{
+    		if($scope.dataTags[i].ID == engineID)
+    			$scope.dataTags[i].Selected = !$scope.dataTags[i].Selected;
+    		}
+    	
+    }
     /*
      * Get data from Predix - send the http request that will be mapped in our controller
      */
@@ -370,29 +283,34 @@ app.controller('mainController', function($scope, $http) {
 			$http(req)
 			.then(
 				function(data){
-					var tagsArray = data.data.tags;
+					console.log(data);
+					var engineArray = data.data;
 					var matchedTag = null;
 					var matchedEngine = null;
-					var resultsArray = null;
-					for(i = 0; i < tagsArray.length; i ++)
+					for(i = 0; i < engineArray; i ++)
 					{
-						for(j = 0; j < $scope.dataTags.length; j ++)
+						var tagsArray = engineArray[i];
+						
+						for(j = 0; j < tagsArray; j++)
 						{
-							if(i.name == j.DisplayedName)
+							for(k = 0; k < tagsArray; k++)
 							{
-								matchedTag = j;
+								if(j.name == k.DisplayedName)
+								{
+									matchedTag = k;
+								}
 							}
-						}
-						for(k = 0; k < $scope.engines; k ++)
-						{
-							if(i.attributes.AssetUri.contains(k.PredixReference))
+							
+							for(k = 0; k < $scope.engines; k ++)
 							{
-								matchedEngine = k;
-								matchedEngine.Data[matchedTag.ID].Values = i.values;
+								if(i.attributes.AsetUri.contains(k.PredixReference))
+								{
+									matchedEngine = k;
+									$scope.engines[k.ID].Data[matchedTag.ID].Values = i.values;
+								}
 							}
 						}
 					}
-					console.log($scope.engines);
 				}, 
 				function(data){
 					console.log("Could not get the Predix data due to " + data);
@@ -432,7 +350,7 @@ app.controller('mainController', function($scope, $http) {
     				 data: data
     				}
 
-    				$http(req).then(function(data){console.log(data);}, function(data){console.log("Could not get the Predix data due to " + data);});
+    				$http(req).then(function(data){}, function(data){console.log("Could not get the Predix data due to " + data);});
         	
     	})
     	// Error from getAuthToken request

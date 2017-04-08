@@ -162,7 +162,7 @@ public class SpringServiceImpl implements SpringService {
 		ResponseEntity<String> response = restTemplate.exchange("https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints", HttpMethod.POST, entity, String.class);
 	
 		// Return the response body to the controller
-		return response.getBody();
+		return response.getBody().replaceAll("^\"|\"$", "");
 	}
 
 	public String getAggregateDataPoints(String[] tagNames, String startTime, String engineType) throws IOException, JSONException {
