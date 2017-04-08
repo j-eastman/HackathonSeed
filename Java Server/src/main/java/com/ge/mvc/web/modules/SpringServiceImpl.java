@@ -156,9 +156,11 @@ public class SpringServiceImpl implements SpringService {
 		
 		// Create the HTTP entity
 		HttpEntity<String> entity = new HttpEntity<String>(jsonBody.toString(), headers);
-
+		System.out.println(entity);
 		// Send the post request and record the response
 		ResponseEntity<String> response = restTemplate.exchange("https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints", HttpMethod.POST, entity, String.class);
+		
+		System.out.println(response);
 		// Return the response body to the controller
 		return response.getBody().replaceAll("^\"|\"$", "");
 	}

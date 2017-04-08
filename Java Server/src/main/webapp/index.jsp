@@ -18,12 +18,16 @@
 
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
-<!--Iron-->
-<link rel="import" href="bower_components/px-vis-timeseries/px-vis-timeseries.html">
+<link rel="import" href="bower_components/px-dropdown/px-dropdown.html"></link>
+<link rel="import"
+	href="bower_components/px-dropdown/px-dropdown-content.html"></link>
+
+<link rel="import"
+	href="bower_components/px-vis-timeseries/px-vis-timeseries.html">
 <link rel="import" href="bower_components/px-dropdown/px-dropdown.html">
 </head>
 
-<title>GEHC Hackathon #1</title>
+<title>GEHC Hackathon #4</title>
 </head>
 
 <nav class="navbar navbar-default">
@@ -53,135 +57,155 @@
 
 <body ng-app="predixModule" ng-controller="mainController">
 	<div id="container">
-    <style>
-    
-      ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-	}
+		<style>
+table {
 	
-	li {
-	    float: left;
-	    margin-right: 10%;
-	    margin-bottom: 10%;
-	}
-	
-	li a {
-	    display: block;
-	    color: white;
-	    text-align: center;
-	    padding: 16px;
-	    text-decoration: none;
-	}
-    
-	  table, th, td {
-	  border: 1px solid black;
-	  }
-		
-      .multiselect{
-        width: 200px;
-      }
-      .selectBox {
-        position: relative;
-      }
-      .selectBox select{
-        width: 100%;
-        font-weight: bold;
-      }
-      .overSelect{
-          position: absolute;
-        left: 0; right: 0; top: 0; bottom: 0;
-      }
-      #checkboxes{
-        display: none;
-        border: 1px #dadada solid;
-      }
-      #checkboxes label{
-        display: block;
-      }
-      #checkboxes label:hover{
-        background-color: #1e90ff;
-      }
+}
 
-      #checkboxes2{
-        display: none;
-        border: 1px #dadada solid;
-      }
-      #checkboxes2 label{
-        display: block;
-      }
-      #checkboxes2 label:hover{
-        background-color: #1e90ff;
-      }
-    </style>
-  </head>
-  <body>
+px-dropdown {
+	position: relative;
+	z-index: 5;
+	left: 0;
+}
 
-    <h1>Hello World! This is GROUP NUMBER 4 -- TESTING 1234!!!</h1>
-  
-  
-	  <table style="width:100%">
-	  <tr>
-	    <th>
-	    	<ul id="heading">
-			<form>
-			<!-- FORM for checkboxes -->
+i {
+	color: brown;
+}
 
-      		  <!-- New class for multiselect checkboxes -->
-		      <div class = "multiselect">
-		
-				<li>
-		          <!-- New class for tags checkboxes -->
-		        <div class = "selectBox" onclick = "showCheckboxes()">
-		                  <select>
-		                      <option value="Tags">Tags</option>
-		                  </select>
-		                  <div class="overSelect"></div>
-		        </div>
-		        <div id = "checkboxes">
-		            <label ng-repeat="t in tag track by t.ID" for="tag{{t.ID}}" >
-		            	<input type="checkbox" id="tag{{t.ID}}" ng-click="selectTag(t.ID)"/> {{t.DisplayedName}}
-		            </label>
-		        </div>
-		        </li>
-		        
-		        <li>
-		        <div class = "selectBox" onclick = "showCheckboxes2()">
-                  <select>
-                      <option value="Engines">Engines</option>
-                  </select>
-                  <div class = "overSelect"></div>
-                </div>
-          <div id = "checkboxes2">
-            <label ng-repeat = "e in eng track by e.ID" for = "eng{{e.ID}}" >
-            	<input type = "checkbox" id = "eng{{e.ID}}" ng-click="selectEngine(e.ID)"/> {{e.DisplayedName}}
-            </label>
-          </div>
-          </li>
-       </div>    <!-- end multiselect class -->
-       
-       </form>
-       
-       	<li>
-       		<button class="btn" ng-click="applyFilters()">Apply</button>
-       	</li>
-       	   </ul>
+button {
+	color: black;
+}
 
-		</th> 
-		
-	  </tr>
-	  
-	  <tr>
-	  		<td ng-show="graphData && graphData.length > 0">
-	    	  <px-vis-timeseries prevent-resize="true" debounce-resize-timing="250" width="1024" height="576" padding-top="400" progressive-rendering-points-per-frame="16000" progressive-rendering-min-frames="1" chart-horizontal-alignment="center" chart-vertical-alignment="center" margin='{"top":20,"bottom":15,"left":65,"right":65}' tooltip-config='{}' register-config='{"type":"vertical","width":200}' selection-type="xy" chart-data="{{graphData}}" series-config='{"y0":{"name":"y0","x":"x","y":"y0","yAxisUnit":"F","axis":{"id":"axis1","side":"left","number":"1"}},"y1":{"name":"y1","x":"x","y":"y1","yAxisUnit":"Hz","axis":{"id":"axis2","side":"right","number":"1"}},"y2":{"name":"y2","x":"x","y":"y2","yMin":0.11,"yMax":1.1,"yAxisUnit":"C","axis":{"id":"axis3","side":"left","number":"2"}},"y3":{"name":"y3","x":"x","y":"y3","yAxisUnit":"F","axis":{"id":"axis4","side":"right","number":"2"}}}' chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}' event-data='[{"id":"123","time":1398714240000,"label":"Recalibrate"},{"id":"456","time":1397640960000,"label":"Fan start"},{"id":"789","time":1398126240000,"label":"Fan stop"},{"id":"333","time":1398956340000,"label":"Default"}]' event-config='{"Recalibrate":{"color":"blue","icon":"fa-camera","type":"fa","offset":[0,0],"lineColor":"red","lineWeight":0},"Fan start":{"color":"green","icon":"#","type":"unicode","offset":[1,0]},"Fan stop":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}' threshold-data='[{"for":"y0","type":"max","value":15.4784},{"for":"y0","type":"min","value":7.6531},{"for":"y0","type":"mean","value":15.330657585139331},{"for":"y1","type":"mean","value":75},{"for":"y1","type":"quartile","value":17}]' display-threshold-title="true" threshold-config='{"max":{"color":"red","dashPattern":"5,0","title":"MAX","showThresholdBox":true,"displayTitle":true}}' x-axis-config='{"title":"Date"}' y-axis-config='{"title":"Single","titleTruncation":false,"unit":"F","axis1":{"title":"Temperature","titleTruncation":false,"unit":"C"}}' dynamic-menu-config='[{"name":"Delete","action":"function(data) {var conf = this.seriesConfig;delete conf[data.additionalDetail.name];this.set(\"seriesConfig\", {}); this.set(\"seriesConfig\", conf);}","eventName":"delete","icon":"fa-trash"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"fa-arrow-up"}]' toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"fa-leaf","subConfig":{"customClick":{"icon":"fa-coffee","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"fa-fire-extinguisher","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}' navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'></px-vis-timeseries>
-	  		</td>
-	  </tr>
-	</table>
-   
-    <script>
+ul {
+	height: 200px;
+	overflow: visible;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.multiselect {
+	width: 200px;
+}
+
+.selectBox {
+	position: relative;
+}
+
+.selectBox select {
+	width: 100%;
+	font-weight: bold;
+}
+
+.overSelect {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+#checkboxes {
+	display: none;
+	border: 1px #dadada solid;
+}
+
+#checkboxes label {
+	display: block;
+}
+
+#checkboxes label:hover {
+	background-color: #1e90ff;
+}
+
+#checkboxes2 {
+	display: none;
+	border: 1px #dadada solid;
+}
+
+#checkboxes2 label {
+	display: block;
+}
+
+#checkboxes2 label:hover {
+	background-color: #1e90ff;
+}
+</style>
+		</head>
+		<body>
+			<h1>3Left</h1>
+			<table style="width: 100%">
+				<tr style="width: 100%" class="multiselect">
+					<div class="selectBox" onclick="showCheckboxes()">
+								<select>
+									<option value="Tags">Tags</option>
+								</select>
+								<div class="overSelect"></div>
+							</div>
+							<div id="checkboxes">
+								<label ng-repeat="e in engines track by e.ID" for="eng{{e.ID}}">
+									<input type="checkbox" id="eng{{e.ID}}" /> {{e.DisplayedName}}
+								</label>
+							</div>
+				</tr>
+				<tr class="multiselect">
+							<div class="selectBox" onclick="showCheckboxes2()">
+								<select>
+									<option value="Engines">Engines</option>
+								</select>
+								<div class="overSelect"></div>
+							</div>
+							<div id="checkboxes2">
+								<label ng-repeat="t in dataTags track by t.ID" for="tag{{t.ID}}">
+									<input type="checkbox" id="tag{{t.ID}}" /> {{t.DisplayedName}}
+								</label>
+							</div>
+				</tr>
+				<tr>
+						<button class="btn">
+  						<i class="fa fa-briefcase u-mr--"></i> Apply</button>
+				</tr>
+				<tr>
+					<td style="z-index: -1; position: relative"><px-vis-timeseries
+							prevent-resize="true" debounce-resize-timing="250" width="1024"
+							height="576" padding-top="400"
+							progressive-rendering-points-per-frame="16000"
+							progressive-rendering-min-frames="1"
+							chart-horizontal-alignment="center"
+							chart-vertical-alignment="center"
+							margin='{"top":20,"bottom":15,"left":65,"right":65}'
+							tooltip-config='{}'
+							register-config='{"type":"vertical","width":200}'
+							selection-type="xy"
+							chart-data={{graphData}}
+							series-config='{"y0":{"name":"y0","x":"x","y":"y0","yAxisUnit":"F","axis":{"id":"axis1","side":"left","number":"1"}},"y1":{"name":"y1","x":"x","y":"y1","yAxisUnit":"Hz","axis":{"id":"axis2","side":"right","number":"1"}},"y2":{"name":"y2","x":"x","y":"y2","yMin":0.11,"yMax":1.1,"yAxisUnit":"C","axis":{"id":"axis3","side":"left","number":"2"}},"y3":{"name":"y3","x":"x","y":"y3","yAxisUnit":"F","axis":{"id":"axis4","side":"right","number":"2"}}}'
+							chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}'
+							event-data='[{"id":"123","time":1398714240000,"label":"Recalibrate"},{"id":"456","time":1397640960000,"label":"Fan start"},{"id":"789","time":1398126240000,"label":"Fan stop"},{"id":"333","time":1398956340000,"label":"Default"}]'
+							event-config='{"Recalibrate":{"color":"blue","icon":"fa-camera","type":"fa","offset":[0,0],"lineColor":"red","lineWeight":0},"Fan start":{"color":"green","icon":"#","type":"unicode","offset":[1,0]},"Fan stop":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}'
+							threshold-data='[{"for":"y0","type":"max","value":15.4784},{"for":"y0","type":"min","value":7.6531},{"for":"y0","type":"mean","value":15.330657585139331},{"for":"y1","type":"mean","value":75},{"for":"y1","type":"quartile","value":17}]'
+							display-threshold-title="true"
+							threshold-config='{"max":{"color":"red","dashPattern":"5,0","title":"MAX","showThresholdBox":true,"displayTitle":true}}'
+							x-axis-config='{"title":"Date"}'
+							y-axis-config='{"title":"Single","titleTruncation":false,"unit":"F","axis1":{"title":"Temperature","titleTruncation":false,"unit":"C"}}'
+							dynamic-menu-config='[{"name":"Delete","action":"function(data) {var conf = this.seriesConfig;delete conf[data.additionalDetail.name];this.set(\"seriesConfig\", {}); this.set(\"seriesConfig\", conf);}","eventName":"delete","icon":"fa-trash"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"fa-arrow-up"}]'
+							toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"fa-leaf","subConfig":{"customClick":{"icon":"fa-coffee","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"fa-fire-extinguisher","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}'
+							navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'></px-vis-timeseries>
+					</td>
+				</tr>
+			</table>
+
+			<script>
       var expanded = false;
       function showCheckboxes(){
         var checkboxes = document.getElementById("checkboxes");
@@ -209,8 +233,7 @@
       }
     </script>
 
-		<div ng-view></div>
-
+			<div ng-view></div>
 	</div>
 
 </body>
