@@ -71,8 +71,30 @@ class SpringController {
 		JSONObject body = new JSONObject(request.getBody());
 		String bodyTagNames = body.getString("tagNames");
 		String[] tagNames = bodyTagNames.split(",");
-		
-		return springService.getLimitedDataPoints(tagNames, body.getString("startTime"));
+		String [] engines = body.getString("engines") != null ? body.getString("engines").split(",") : null;
+		String[] result = new String[engines.length];
+		for(int i = 0; i < result.length; i++)
+		{
+			result[i] = springService.getLimitedDataPoints(tagNames, body.getString("startTime"), engines[i]);
+		}
+		return result.toString();
+		//return springService.getLimitedDataPoints(tagNames, body.getString("startTime"), null);
 	}
+	
+	/*
+	 * Get the JSON object from the time series service
+	 * 
+	 * @return Data stored in timeseries table
+	 */
+	@RequestMapping(value = "/getAggregateDataPoints", method = { RequestMethod.POST }, produces = "text/html")
+	public @ResponseBody String getAggregateDataPoints(HttpEntity<String> request) throws IOException, JSONException {
+		// Invoke the service to return the time series data
+		JSONObject body = new JSONObject(request.getBody());
+		String bodyTagNames = body.getString("tagNames");
+		String[] tagNames = bodyTagNames.split(",");
+		
+		return springService.getAggregateDataPoints(tagNames, "1d-ago", body.getString("engineType"));
+	}
+
 
 }

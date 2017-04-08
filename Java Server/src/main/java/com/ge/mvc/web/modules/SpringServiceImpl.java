@@ -118,7 +118,7 @@ public class SpringServiceImpl implements SpringService {
 
 	/*
 	 */
-	public String getLimitedDataPoints(String[] tagNames, String startTime) throws IOException, JSONException {
+	public String getLimitedDataPoints(String[] tagNames, String startTime, String engine) throws IOException, JSONException {
 
 		// Instantiate the rest template
 		RestTemplate restTemplate = new RestTemplate();
@@ -144,6 +144,9 @@ public class SpringServiceImpl implements SpringService {
 			tags.put("order", "desc");
 			// Limit tag for limited data points
 			tags.put("limit", "10000");
+			tags.put("filters", new JSONObject()
+					.put("attributes", new JSONObject()
+							.put("AssetUri", engine)));
 			// Add the tags to an array (needed for query)
 			parent.put(tags);
 		}
@@ -162,4 +165,51 @@ public class SpringServiceImpl implements SpringService {
 		return response.getBody();
 	}
 
+	public String getAggregateDataPoints(String[] tagNames, String startTime, String engineType) throws IOException, JSONException {
+
+		// Instantiate the rest template
+		RestTemplate restTemplate = new RestTemplate();
+				
+		// Instantiate the headers object to house the request headers
+		HttpHeaders headers = new HttpHeaders();
+		
+		//add request headers
+		headers.set("predix-zone-id", "e3fba85e-d334-409e-87ce-3a17e71b4946");
+		headers.set("Authorization", "Bearer " + this.getAccessToken());
+		headers.set("Content-Type", "application/json");
+
+		// JSONObject for the outer tags
+		JSONObject jsonBody = new JSONObject();
+		// JSONObject for the tags
+		JSONArray parent=new JSONArray();
+		// Name of table to query
+		for(String s : tagNames)
+		{
+			JSONObject tag = new JSONObject()
+	                  .put("name", s)
+	                  .put("order",  "desc")
+	                  .put("aggregations", new JSONArray()
+	                		  .put(new JSONObject()
+	                				  .put("type", "avg")
+	                				  .put("sampling", new JSONObject()
+	                						  .put("unit", "s")
+	                						  .put("value", "30"))));
+			parent.put(tag);
+		}
+		// Add array to JSON Body
+		jsonBody.put("tags", parent);
+		// Add start date
+		jsonBody.put("start",startTime);
+				
+		// Create the HTTP entity
+		HttpEntity<String> entity = new HttpEntity<String>(jsonBody.toString(), headers);
+
+		// Send the post request and record the response
+		ResponseEntity<String> response = restTemplate.exchange("https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints", HttpMethod.POST, entity, String.class);
+	
+		// Return the response body to the controller
+		return response.getBody();
+	}
+	
+	
 }
