@@ -46,17 +46,13 @@
     "primary",
     "secondary (default)",
     "tertiary",
+    "call to action",
+    "call to action (disabled)",
     "disabled",
     "bare",
     "bare primary"
   ]'
   default-choice="secondary (default)">
-</px-sass-doc-option>
-
-<px-sass-doc-option
-  option-name="Icon"
-  choose-with="boolean"
-  default-choice="false">
 </px-sass-doc-option>
 
 <!-- 3: Make HTML Demo -->
@@ -107,6 +103,8 @@ the button should appear as wide as possible.
 
 <!-- Types of Buttons: -->
 <button class="btn btn--primary">Primary</button>
+<button class="btn btn--call-to-action">Call To Action</button>
+<button class="btn btn--call-to-action btn--disabled">Call To Action (disabled)</button>
 <button class="btn btn--tertiary">Tertiary</button>
 <button class="btn btn--disabled">Disabled</button>
 <button class="btn btn--bare">Bare</button>
@@ -147,16 +145,18 @@ the button should appear as wide as possible.
 
     _buttonClasses : function() {
       var opts = this.selectedOptions || {}, strings = [];
-      if (opts.Size === "small")         strings.push("btn--small");
-      if (opts.Size === "large")         strings.push("btn--large");
-      if (opts.Size === "huge")          strings.push("btn--huge");
-      if (opts.Size === "full")          strings.push("btn--full");
-      if (opts.Type === "primary")       strings.push("btn--primary");
-      if (opts.Type === "tertiary")      strings.push("btn--tertiary");
-      if (opts.Type === "disabled")      strings.push("btn--disabled");
-      if (opts.Type === "bare")          strings.push("btn--bare");
-      if (opts.Type === "bare primary")  strings.push("btn--bare--primary");
-      if (opts.Icon === true)            strings.push("btn--icon");
+      if (opts.Size === "small")          strings.push("btn--small");
+      if (opts.Size === "large")          strings.push("btn--large");
+      if (opts.Size === "huge")           strings.push("btn--huge");
+      if (opts.Size === "full")           strings.push("btn--full");
+      if (opts.Type === "primary")        strings.push("btn--primary");
+      if (opts.Type === "call to action") strings.push("btn--call-to-action");
+      if (opts.Type === "call to action (disabled)") strings.push("btn--call-to-action btn--disabled");
+      if (opts.Type === "tertiary")       strings.push("btn--tertiary");
+      if (opts.Type === "disabled")       strings.push("btn--disabled");
+      if (opts.Type === "bare")           strings.push("btn--bare");
+      if (opts.Type === "bare primary")   strings.push("btn--bare--primary");
+      if (opts.Icon === true)             strings.push("btn--icon");
       return ("btn " + strings.join(" ")).trim();
     },
 
@@ -167,6 +167,8 @@ the button should appear as wide as possible.
       if (opts.Size === "huge")           strings.push("$inuit-enable-btn--huge : true;");
       if (opts.Size === "full")           strings.push("$inuit-enable-btn--full : true;");
       if (opts.Type === "primary")        strings.push("$inuit-enable-btn--primary : true;");
+      if (opts.Type === "call to action") strings.push("$inuit-enable-btn--call-to-action : true;");
+      if (opts.Type === "call to action (disabled)") strings.push("$inuit-enable-btn--call-to-action : true;\n$inuit-enable-btn--disabled : true;");
       if (opts.Type === "tertiary")       strings.push("$inuit-enable-btn--tertiary : true;");
       if (opts.Type === "disabled")       strings.push("$inuit-enable-btn--disabled : true;");
       if (opts.Type === "bare")           strings.push("$inuit-enable-btn--bare : true;");
@@ -176,7 +178,9 @@ the button should appear as wide as possible.
     },
 
     _tabIs : function(tabName) {
-      var selected = this.selectedTab || "";
+      var selected = this.selectedTab || '';
+      this.selectedOptions.Icon = (this.selectedTab === 'Icon');
+      this.fire('px-sass-doc-options-updated', {});
       return selected === tabName;
     }
   });

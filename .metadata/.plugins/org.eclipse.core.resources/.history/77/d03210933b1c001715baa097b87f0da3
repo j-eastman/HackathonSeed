@@ -146,8 +146,13 @@
 		                  <div class = "overSelect"></div>
 		        </div>
 		        <div id = "checkboxes">
+<<<<<<< HEAD
+		            <label ng-repeat = "e in engines track by e.ID" for = "eng{{e.ID}}" >
+		            	<input type="checkbox" id="eng{{e.ID}}" ng-click="selectEngine(e.ID)"/> {{e.DisplayedName}}
+=======
 		            <label ng-repeat = "t in tag track by t.ID" for = "tag{{t.ID}}" >
-		            	<input type = "checkbox" id = "tag{{t.ID}}" ng-click="selectTag(t.ID)"/> {{t.DisplayedName}}
+		            	<input type = "checkbox" id = "tag{{t.ID}}"/> {{t.DisplayedName}}
+>>>>>>> ccaf1869a37acd68466831dedd7dd3e80ddc012d
 		            </label>
 		        </div>
 		        </li>

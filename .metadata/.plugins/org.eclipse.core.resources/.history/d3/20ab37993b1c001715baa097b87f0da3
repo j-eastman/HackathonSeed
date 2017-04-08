@@ -160,6 +160,10 @@
                   <div class = "overSelect"></div>
                 </div>
           <div id = "checkboxes2">
+<<<<<<< HEAD
+            <label ng-repeat = "t in tag track by t.ID" for = "tag{{t.ID}}" >
+            	<input type = "checkbox" id = "tag{{t.ID}}" ng-click="selectTag(t.ID)"/> {{t.DisplayedName}}
+=======
             <label ng-repeat = "e in eng track by e.ID" for = "eng{{e.ID}}" >
             	<input type = "checkbox" id = "eng{{e.ID}}" ng-click="selectEngine(e.ID)"/> {{e.DisplayedName}}
             </label>
