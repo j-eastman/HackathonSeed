@@ -305,8 +305,7 @@ app.controller('mainController', function($scope, $http) {
 					for(i = 0; i < engineArray; i ++)
 					{
 						var tagsArray = engineArray[i];
-						console.log("tagsArray");
-						console.log(tagsArray);
+						
 						for(j = 0; j < tagsArray; j++)
 						{
 							for(k = 0; k < tagsArray; k++)

@@ -298,14 +298,15 @@ app.controller('mainController', function($scope, $http) {
 			.then(
 				function(data){
 					console.log("data")
-					console.log(data);
+					console.log(data.data);
 					var engineArray = data.data;
 					var matchedTag = null;
 					var matchedEngine = null;
 					for(i = 0; i < engineArray; i ++)
 					{
 						var tagsArray = engineArray[i];
-						
+						console.log("tagsArray");
+						console.log(tagsArray);
 						for(j = 0; j < tagsArray; j++)
 						{
 							for(k = 0; k < tagsArray; k++)
