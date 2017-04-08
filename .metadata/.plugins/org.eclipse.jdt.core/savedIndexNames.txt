@@ -46,7 +46,6 @@ INDEX VERSION 1.130+/Users/brittanyahlgrim/Documents/Marquette/Other/PredixHacka
 2836768052.index
 964783770.index
 1503607315.index
-2817850950.index
 675764312.index
 3810559768.index
 1999298954.index

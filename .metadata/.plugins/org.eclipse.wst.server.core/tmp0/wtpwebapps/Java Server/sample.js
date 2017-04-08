@@ -4,14 +4,13 @@ var app = angular.module('predixModule', []);
 
 // The main controller for the Predix Hackathon
 app.controller('mainController', function($scope, $http) {
-	// Add the function getDataFromPredix to the scope
 	// This will be called on page load
-    $scope.getDataFromPredix = getDataFromPredix;
+    $scope.getLimitedDataPoints = getLimitedDataPoints;
     $scope.token = "";
     /*
      * Get data from Predix - send the http request that will be mapped in our controller
      */
-    function getDataFromPredix(){
+    function getLimitedDataPoints(){
     	// test
     	// Get the UAA authentication token
     	$http.get('/springmvc-helloworld/getAuthToken/')
@@ -22,18 +21,21 @@ app.controller('mainController', function($scope, $http) {
     		//console.log(authToken);
     		$scope.token = authToken;
     		// Get data from predix using the token
-    		$http.post('/springmvc-helloworld/getData/')
+    		var data = {
+    				'tagNames': 'Engine Frequency,Engine Battery Voltage',
+    				'startTime': '1y-ago'
+    		}
+    		var req = {
+    				 method: 'POST',
+    				 url: '/springmvc-helloworld/getLimitedDataPoints/',
+    				 headers: {
+    				   'Content-Type': 'application/json'
+    				 },
+    				 data: data
+    				}
+
+    				$http(req).then(function(data){console.log(data);}, function(data){console.log("Could not get the Predix data due to " + data);});
         	
-        	// If the request was successful
-        	.success(function(data) {			
-        		// Log the data in console
-        		console.log(data);
-        	})
-        	// Error from getData request
-        	.error(function(data) {
-        		// Log the error in console
-        		console.log("Could not get the Predix data due to " + data);
-        	}); 
     	})
     	// Error from getAuthToken request
     	.error(function(data) {
@@ -43,20 +45,8 @@ app.controller('mainController', function($scope, $http) {
     	
     }
     
-    function aggregateData(){
-    	$http.get('springmvc-helloworld/getaAggregateData/')
-    	.success(function(data){
-    		console.log("Successful");
-    		console.log("data: ");
-    		console.log(data);
-    	})
-    	.error(function(data){
-    		console.log("could not get aggregate data");
-    	});
-    }
-    
     // Call method on page load
-  	getDataFromPredix(); 
+  	getLimitedDataPoints();
  
        
 	//end controller

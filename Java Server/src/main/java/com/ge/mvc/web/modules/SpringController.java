@@ -2,7 +2,9 @@ package com.ge.mvc.web.modules;
 
 import java.io.IOException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.http.*;
 
 import com.ge.mvc.web.modules.SpringService;
 
@@ -53,6 +57,22 @@ class SpringController {
 	public @ResponseBody String getData() throws IOException, JSONException {
 		// Invoke the service to return the time series data
 		return springService.getData("https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints");
+	}
+
+
+	/*
+	 * Get the JSON object from the time series service
+	 * 
+	 * @return Data stored in timeseries table
+	 */
+	@RequestMapping(value = "/getLimitedDataPoints", method = { RequestMethod.POST }, produces = "text/html")
+	public @ResponseBody String getLimitedDataPoints(HttpEntity<String> request) throws IOException, JSONException {
+		// Invoke the service to return the time series data
+		JSONObject body = new JSONObject(request.getBody());
+		String bodyTagNames = body.getString("tagNames");
+		String[] tagNames = bodyTagNames.split(",");
+		
+		return springService.getLimitedDataPoints(tagNames, body.getString("startTime"));
 	}
 
 }

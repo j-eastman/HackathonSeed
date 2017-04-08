@@ -26,6 +26,8 @@ public interface SpringService {
 	 */
 	public String getData(String url) throws IOException, JSONException;
 
-
+	/*
+	 */
+	public String getLimitedDataPoints(String[] tagNames, String startTime) throws IOException, JSONException;
 }
 
