@@ -473,3 +473,16 @@
 0:0:0:0:0:0:0:1 - - [07/Apr/2017:22:30:00 -0500] "GET /springmvc-helloworld/bower_components/polymer/polymer-micro.html HTTP/1.1" 200 20503
 0:0:0:0:0:0:0:1 - - [07/Apr/2017:22:30:01 -0500] "GET /springmvc-helloworld/getAuthToken/ HTTP/1.1" 200 3424
 0:0:0:0:0:0:0:1 - - [07/Apr/2017:22:30:02 -0500] "POST /springmvc-helloworld/getLimitedDataPoints/ HTTP/1.1" 200 210900
+127.0.0.1 - - [07/Apr/2017:23:26:17 -0500] "GET / HTTP/1.1" 404 1070
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:20 -0500] "GET /springmvc-helloworld/ HTTP/1.1" 200 1763
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/iron-ajax/iron-ajax.html HTTP/1.1" 200 14431
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/webcomponentsjs/webcomponents-lite.min.js HTTP/1.1" 200 40547
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/sample.js HTTP/1.1" 200 3893
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/polymer/polymer.html HTTP/1.1" 200 143298
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/iron-ajax/iron-request.html HTTP/1.1" 200 13286
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/polymer/polymer-mini.html HTTP/1.1" 200 54472
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/promise-polyfill/promise-polyfill-lite.html HTTP/1.1" 200 697
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/polymer/polymer-micro.html HTTP/1.1" 200 20503
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:21 -0500] "GET /springmvc-helloworld/bower_components/promise-polyfill/Promise.js HTTP/1.1" 200 3406
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:22 -0500] "GET /springmvc-helloworld/getAuthToken/ HTTP/1.1" 200 3424
+0:0:0:0:0:0:0:1 - - [07/Apr/2017:23:26:24 -0500] "POST /springmvc-helloworld/getLimitedDataPoints/ HTTP/1.1" 200 421802

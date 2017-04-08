@@ -188,7 +188,7 @@ app.controller('mainController', function($scope, $http) {
 			.then(
 				function(data){
 					var dirtyData = data;
-				
+					
 					console.log(data);
 				}, 
 				function(data){
