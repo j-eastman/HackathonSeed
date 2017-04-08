@@ -118,7 +118,7 @@ public class SpringServiceImpl implements SpringService {
 
 	/*
 	 */
-	public String getLimitedDataPoints(String[] tagNames, String startTime) {
+	public String getLimitedDataPoints(String[] tagNames, String startTime, String engine) throws IOException, JSONException {
 
 		// Instantiate the rest template
 		RestTemplate restTemplate = new RestTemplate();
@@ -144,6 +144,9 @@ public class SpringServiceImpl implements SpringService {
 			tags.put("order", "desc");
 			// Limit tag for limited data points
 			tags.put("limit", "10000");
+			tags.put("filters", new JSONObject()
+					.put("attributes", new JSONObject()
+							.put("AssetUri", engine)));
 			// Add the tags to an array (needed for query)
 			parent.put(tags);
 		}
@@ -197,7 +200,6 @@ public class SpringServiceImpl implements SpringService {
 		jsonBody.put("tags", parent);
 		// Add start date
 		jsonBody.put("start",startTime);
-		//jsonBody.put("end", endTime);
 				
 		// Create the HTTP entity
 		HttpEntity<String> entity = new HttpEntity<String>(jsonBody.toString(), headers);

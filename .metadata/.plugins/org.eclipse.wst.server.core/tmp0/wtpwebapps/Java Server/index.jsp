@@ -19,7 +19,7 @@
 <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 
 <!--Iron-->
-<link rel="import" href="bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="bower_components/px-vis-timeseries/px-vis-timeseries.html">
 </head>
 
 <title>GEHC Hackathon #1</title>
@@ -53,7 +53,6 @@
 <body ng-app="predixModule" ng-controller="mainController">
 
 	<div id="container">
-
 		<div ng-view></div>
 
 	</div>

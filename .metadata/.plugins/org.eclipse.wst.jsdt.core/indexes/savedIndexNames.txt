@@ -3,7 +3,6 @@ INDEX VERSION 1.3+/Users/brittanyahlgrim/Documents/Marquette/Other/PredixHackath
 3520263029.index
 3832848701.index
 1286334259.index
-1163112269.index
 538195575.index
 1422074177.index
 1684112674.index
