@@ -1,0 +1,435 @@
+
+// Define a new module for our app
+var app = angular.module('predixModule', []);
+
+// The main controller for the Predix Hackathon
+app.controller('mainController', function($scope, $http) {
+	// This will be called on page load
+	$scope.engines = 
+		[
+			{
+				ID: 1,
+				DisplayedName: '2afbd553-8d7f-4c59-8346-d93a92b177ba', 
+				PredixReference: '/engine/2afbd553-8d7f-4c59-8346-d93a92b177ba',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 2,
+				DisplayedName: 'cb27ef1b-b0de-494d-877f-32e95b757651', 
+				PredixReference: '/engine/cb27ef1b-b0de-494d-877f-32e95b757651',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 3,
+				DisplayedName: '86d23000-3820-4d56-b755-6ea1302ddc4b', 
+				PredixReference: '/engine/86d23000-3820-4d56-b755-6ea1302ddc4b',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 4,
+				DisplayedName: '892e596d-3sds-4c9e-9094-078245931785', 
+				PredixReference: '/engine/892e596d-3sds-4c9e-9094-078245931785',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 5,
+				DisplayedName: '049bb0c2-fca8-4fc6-af28-558c57a1de86', 
+				PredixReference: '/engine/049bb0c2-fca8-4fc6-af28-558c57a1de86',
+				Selected: 0,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 6,
+				DisplayedName: '14727426-d32e-4feb-a2ec-a89f8c5ab100', 
+				PredixReference: '/engine/14727426-d32e-4feb-a2ec-a89f8c5ab100',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 7,
+				DisplayedName: '28880fbe-cb5a-40a7-a885-de4683528fbe', 
+				PredixReference: '/engine/28880fbe-cb5a-40a7-a885-de4683528fbe',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 8,
+				DisplayedName: '2afbd546-8d7f-4c59-8346-d93a92b177ba', 
+				PredixReference: '/engine/2afbd546-8d7f-4c59-8346-d93a92b177ba',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 9,
+				DisplayedName: '6f3cd880-2ad8-43ae-a194-08e2400be4bd', 
+				PredixReference: '/engine/6f3cd880-2ad8-43ae-a194-08e2400be4bd',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 10,
+				DisplayedName: '86d23000-3820-1234-b755-6ea1302ddc4b', 
+				PredixReference: '/engine/86d23000-3820-1234-b755-6ea1302ddc4b',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 11,
+				DisplayedName: '892e596d-e734-4c9e-9094-078245931785', 
+				PredixReference: '/engine/892e596d-e734-4c9e-9094-078245931785',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 12,
+				DisplayedName: '8c12e00a-7d73-42a5-aef3-8f87298d6748', 
+				PredixReference: '/engine/8c12e00a-7d73-42a5-aef3-8f87298d6748',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 13,
+				DisplayedName: '99fefd4b-6503-4e9f-81e4-4a35acd336a8', 
+				PredixReference: '/engine/99fefd4b-6503-4e9f-81e4-4a35acd336a8',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 14,
+				DisplayedName: 'af1135b8-e3a7-4938-967d-4783a8ebafe5', 
+				PredixReference: '/engine/af1135b8-e3a7-4938-967d-4783a8ebafe5',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			},
+			{
+				ID: 15,
+				DisplayedName: 'cd37ef1b-b0de-494d-877f-32e95b757651', 
+				PredixReference: '/engine/cd37ef1b-b0de-494d-877f-32e95b757651',
+				Selected: 1,
+				Data: [
+					{TagID: 1, Values: null},{TagID: 2, Values: null},{TagID: 3, Values: null},{TagID: 4, Values: null},
+					{TagID: 5, Values: null},{TagID: 6, Values: null},{TagID: 7, Values: null},{TagID: 8, Values: null},
+					{TagID: 9, Values: null},{TagID: 10, Values: null}
+				]
+			}
+		];
+	
+	$scope.dataTags = 
+		[
+			{
+				ID: 1,
+				DisplayedName: 'Engine Frequency',
+				Selected: 1
+			},
+			{
+				ID: 2,
+				DisplayedName: 'Engine Hours',
+				Selected: 1
+			},
+			{
+				ID: 3,
+				DisplayedName: 'Engine LB Exhaust Temp',
+				Selected: 1
+			},
+			{
+				ID: 4,
+				DisplayedName: 'Engine Load',
+				Selected: 1
+			},
+			{
+				ID: 5,
+				DisplayedName: 'Engine Oil Pressure',
+				Selected: 1
+			},
+			{
+				ID: 6,
+				DisplayedName: 'Engine Oil Temp',
+				Selected: 1
+			},
+			{
+				ID: 7,
+				DisplayedName: 'Engine Power',
+				Selected: 1
+			},
+			{
+				ID: 8,
+				DisplayedName: 'Engine Power - Insights',
+				Selected: 1
+			},
+			{
+				ID: 9,
+				DisplayedName: 'Engine RB Exhaust Temp',
+				Selected: 1
+			},
+			{
+				ID: 10,
+				DisplayedName: 'Engine Speed',
+				Selected: 1
+			}
+		];
+
+	$scope.getLimitedDataPoints = getLimitedDataPoints;
+	$scope.getAggregateDataPoints = getAggregateDataPoints;
+    $scope.token = "";
+    
+    $scope.selectEngine = function(engineID)
+    {
+    	console.log(engineID);
+    	for(i = 0; i < $scope.engines.length; i ++)
+    		{
+    		if($scope.engines[i].ID == engineID)
+    			$scope.engines[i].Selected = !$scope.engines[i].Selected;
+    		}
+    	
+    }
+    $scope.selectTag = function(tagID)
+    {
+    	for(i = 0; i < $scope.engines.length; i ++)
+    		{
+    		if($scope.dataTags[i].ID == engineID)
+    			$scope.dataTags[i].Selected = !$scope.dataTags[i].Selected;
+    		}
+    	
+    }
+    /*
+     * Get data from Predix - send the http request that will be mapped in our controller
+     */
+    var getLimitedDataPoints = function (){
+    	// test
+    	// Get the UAA authentication token
+    	$http.get('/springmvc-helloworld/getAuthToken/')
+    	
+    	// If the request was successful
+    	.success(function(authToken) {	
+    		// Log auth token in console
+    		//console.log(authToken);
+    		$scope.token = authToken;
+    		var tags = $scope.dataTags.filter(function(t) {return t.Selected}).join(",");
+    		var engines = $scope.engines.filter(function(e){return e.Selected}).join(",");
+    		var tags = $scope.dataTags.filter(function(t) {return t.Selected}).map(function(elem){
+    		    return elem.DisplayedName;}).join(",");
+    		var engines = $scope.engines.filter(function(e){return e.Selected}).map(function(elem){
+    		    return elem.PredixReference;}).join(",");
+
+//    		console.log("tags");
+//    		console.log(tags);
+//    		console.log("engines");
+//    		console.log(engines);
+    		if(!tags && !engines)
+    			return;
+    		// Get data from predix using the token
+    		var selectedEngines = $scope.engines.filter(function(e){return e.Selected == 1} ).toString();
+    		var data = {
+    				'tagNames': tags,
+    				'startTime': '1y-ago',
+    				'engines': engines
+    		}
+    		var req = 
+    		{
+				 method: 'POST',
+				 url: '/springmvc-helloworld/getLimitedDataPoints/',
+				 headers: {
+				   'Content-Type': 'application/json'
+				 },
+				 data: data
+			}
+    		
+			$http(req)
+			.then(
+				function(data){
+					var engineArray = data.data;
+					var matchedTag = null;
+					var matchedEngine = null;
+					for(i = 0; i < engineArray; i ++)
+					{
+						var tagsArray = engineArray[i];
+						
+						for(j = 0; j < tagsArray; j++)
+						{
+							for(k = 0; k < tagsArray; k++)
+							{
+								if(j.name == k.DisplayedName)
+								{
+									matchedTag = k;
+								}
+							}
+							
+							for(k = 0; k < $scope.engines; k ++)
+							{
+								if(i.attributes.AsetUri.contains(k.PredixReference))
+								{
+									matchedEngine = k;
+									$scope.engines[k.ID].Data[matchedTag.ID].Values = i.values;
+								}
+							}
+						}
+					};
+
+				  	formatGraphData();
+				}, 
+				function(data){
+					console.log("Could not get the Predix data due to " + data);
+				}
+			);
+        	
+    	})
+    	// Error from getAuthToken request
+    	.error(function(data) {
+    		// Log error in console
+    		console.log("Could not get the Auth Token due to " + data);
+    	}); 
+    	
+    }
+    
+    var getAggregateDataPoints = function (){
+    	// test
+    	// Get the UAA authentication token
+    	$http.get('/springmvc-helloworld/getAuthToken/')
+    	
+    	// If the request was successful
+    	.success(function(authToken) {	
+    		// Log auth token in console
+    		//console.log(authToken);
+    		$scope.token = authToken;
+    		var tags = $scope.dataTags.filter(function(t) {return t.Selected}).map(function(elem){
+    		    return elem.DisplayedName;}).join(",");
+    		var engines = $scope.engines.filter(function(e){return e.Selected}).map(function(elem){
+    		    return elem.PredixReference;}).join(",");
+    		if(!tags && !engines)
+    			return;
+    		// Get data from predix using the token
+    		var data = {
+    				'tagNames': tags,
+    				'engineType': engines
+    		}
+    		var req = {
+    				 method: 'POST',
+    				 url: '/springmvc-helloworld/getAggregateDataPoints/',
+    				 headers: {
+    				   'Content-Type': 'application/json'
+    				 },
+    				 data: data
+    				}
+
+    				$http(req).then(function(data){}, function(data){console.log("Could not get the Predix data due to " + data);});
+        	
+    	})
+    	// Error from getAuthToken request
+    	.error(function(data) {
+    		// Log error in console
+    		console.log("Could not get the Auth Token due to " + data);
+    	}); 
+    	
+    }
+    
+    $scope.applyFilters = function()
+    {
+    	getLimitedDataPoints();
+    }
+    
+    var formatGraphData = function(){
+    	$scope.graphData = [];
+    	var iteration = 0;
+    	for(i = 0; i < $scope.engines; i ++)
+		{
+    		if($scope.engines[i].Selected)
+			{
+    			for(j = 0; j < $scope.dataTags; j++)
+    			{
+        			if($scope.dataTags[j].Selected)
+    				{
+        				var values = $scope.engines[i].Data[j].Values;
+        				if(values)
+    					{
+        					var yText = "y" + iteration;
+        					for(k = 0; k < values.length; k ++)
+    						{
+        						var set = values[0][k];
+        						var x = set[0];
+        						var y = set[1];
+        						var indexOfElement = $scope.graphData.find(function(a){return a.x == x});
+        						if(indexOfElement)
+        							$scope.graphData[indexOfElement].yText = y;
+        						else
+    							{
+        							var newCoordinates = {'x': x, yText: y};
+        							$scope.graphData.push(newCoordinates);
+    							}
+    						}
+        					iteration++;
+    					}
+    				}
+    			}
+			}
+		}
+    	console.log("graph data: ");
+    	console.log($scope.graphData);
+    }
+    
+    // Call method on page load
+  	getLimitedDataPoints();
+  	getAggregateDataPoints();
+ 
+       
+	//end controller
+});

@@ -173,7 +173,7 @@ li {
 							</div>
 				</tr>
 				<tr>
-						<button class="btn">
+						<button class="btn" ng-click="applyFilters()">
   						<i class="fa fa-briefcase u-mr--"></i> Apply</button>
 				</tr>
 				<tr>

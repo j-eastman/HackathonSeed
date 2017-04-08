@@ -271,10 +271,10 @@ app.controller('mainController', function($scope, $http) {
     		var engines = $scope.engines.filter(function(e){return e.Selected}).map(function(elem){
     		    return elem.PredixReference;}).join(",");
 
-    		console.log("tags");
-    		console.log(tags);
-    		console.log("engines");
-    		console.log(engines);
+//    		console.log("tags");
+//    		console.log(tags);
+//    		console.log("engines");
+//    		console.log(engines);
     		if(!tags && !engines)
     			return;
     		// Get data from predix using the token
@@ -297,6 +297,8 @@ app.controller('mainController', function($scope, $http) {
 			$http(req)
 			.then(
 				function(data){
+					console.log("data")
+					console.log(data);
 					var engineArray = data.data;
 					var matchedTag = null;
 					var matchedEngine = null;
@@ -421,9 +423,9 @@ app.controller('mainController', function($scope, $http) {
     				}
     			}
 			}
-    		
-    		
 		}
+    	console.log("graph data: ");
+    	console.log($scope.graphData);
     }
     
     // Call method on page load
