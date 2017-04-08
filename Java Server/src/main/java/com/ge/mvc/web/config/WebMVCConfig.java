@@ -42,6 +42,7 @@ public class WebMVCConfig extends WebMvcConfigurerAdapter
     {
         logger.debug("setting up resource handlers");
         registry.addResourceHandler("/resources/").addResourceLocations("/resources/**");
+        //registry.addResourceHandler("/resources/").addResourceLocations("/resources/**");
     }
 
     @Override

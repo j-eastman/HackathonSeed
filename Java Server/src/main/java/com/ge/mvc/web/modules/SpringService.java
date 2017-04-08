@@ -22,7 +22,7 @@ public interface SpringService {
 	/*
 	 * Get the data from the time series service
 	 * @param URL - the URL to invoke the HTTP request to
-	 * @return String - The stringified JSON object
+	 * @return String - The stringfield JSON object
 	 */
 	public String getData(String url) throws IOException, JSONException;
 
