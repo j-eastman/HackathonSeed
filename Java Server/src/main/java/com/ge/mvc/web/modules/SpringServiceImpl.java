@@ -119,7 +119,6 @@ public class SpringServiceImpl implements SpringService {
 	/*
 	 */
 	public String getLimitedDataPoints(String[] tagNames, String startTime, String engine) throws IOException, JSONException {
-
 		// Instantiate the rest template
 		RestTemplate restTemplate = new RestTemplate();
 				
@@ -154,13 +153,12 @@ public class SpringServiceImpl implements SpringService {
 		jsonBody.put("tags", parent);
 		// Add start date
 		jsonBody.put("start",startTime);
-				
+		
 		// Create the HTTP entity
 		HttpEntity<String> entity = new HttpEntity<String>(jsonBody.toString(), headers);
 
 		// Send the post request and record the response
 		ResponseEntity<String> response = restTemplate.exchange("https://time-series-store-predix.run.aws-usw02-pr.ice.predix.io/v1/datapoints", HttpMethod.POST, entity, String.class);
-	
 		// Return the response body to the controller
 		return response.getBody().replaceAll("^\"|\"$", "");
 	}

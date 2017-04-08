@@ -20,6 +20,7 @@
 
 <!--Iron-->
 <link rel="import" href="bower_components/px-vis-timeseries/px-vis-timeseries.html">
+<link rel="import" href="bower_components/px-dropdown/px-dropdown.html">
 </head>
 
 <title>GEHC Hackathon #1</title>
@@ -51,12 +52,7 @@
 </nav>
 
 <body ng-app="predixModule" ng-controller="mainController">
-
 	<div id="container">
-
-
-	<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-
     <style>
     
       ul {
@@ -143,11 +139,11 @@
 		                  <select>
 		                      <option value="Tags">Tags</option>
 		                  </select>
-		                  <div class = "overSelect"></div>
+		                  <div class="overSelect"></div>
 		        </div>
 		        <div id = "checkboxes">
-		            <label ng-repeat = "t in tag track by t.ID" for = "tag{{t.ID}}" >
-		            	<input type = "checkbox" id = "tag{{t.ID}}" ng-click="selectTag(t.ID)"/> {{t.DisplayedName}}
+		            <label ng-repeat="t in tag track by t.ID" for="tag{{t.ID}}" >
+		            	<input type="checkbox" id="tag{{t.ID}}" ng-click="selectTag(t.ID)"/> {{t.DisplayedName}}
 		            </label>
 		        </div>
 		        </li>
@@ -170,7 +166,7 @@
        </form>
        
        	<li>
-       		<button class="btn">Apply</button>
+       		<button class="btn" ng-click="applyFilters()">Apply</button>
        	</li>
        	   </ul>
 
@@ -179,8 +175,8 @@
 	  </tr>
 	  
 	  <tr>
-	  		<td>
-	    	  <px-vis-timeseries prevent-resize="true" debounce-resize-timing="250" width="1024" height="576" padding-top="400" progressive-rendering-points-per-frame="16000" progressive-rendering-min-frames="1" chart-horizontal-alignment="center" chart-vertical-alignment="center" margin='{"top":20,"bottom":15,"left":65,"right":65}' tooltip-config='{}' register-config='{"type":"vertical","width":200}' selection-type="xy" chart-data={{graphData}} series-config='{"y0":{"name":"y0","x":"x","y":"y0","yAxisUnit":"F","axis":{"id":"axis1","side":"left","number":"1"}},"y1":{"name":"y1","x":"x","y":"y1","yAxisUnit":"Hz","axis":{"id":"axis2","side":"right","number":"1"}},"y2":{"name":"y2","x":"x","y":"y2","yMin":0.11,"yMax":1.1,"yAxisUnit":"C","axis":{"id":"axis3","side":"left","number":"2"}},"y3":{"name":"y3","x":"x","y":"y3","yAxisUnit":"F","axis":{"id":"axis4","side":"right","number":"2"}}}' chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}' event-data='[{"id":"123","time":1398714240000,"label":"Recalibrate"},{"id":"456","time":1397640960000,"label":"Fan start"},{"id":"789","time":1398126240000,"label":"Fan stop"},{"id":"333","time":1398956340000,"label":"Default"}]' event-config='{"Recalibrate":{"color":"blue","icon":"fa-camera","type":"fa","offset":[0,0],"lineColor":"red","lineWeight":0},"Fan start":{"color":"green","icon":"#","type":"unicode","offset":[1,0]},"Fan stop":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}' threshold-data='[{"for":"y0","type":"max","value":15.4784},{"for":"y0","type":"min","value":7.6531},{"for":"y0","type":"mean","value":15.330657585139331},{"for":"y1","type":"mean","value":75},{"for":"y1","type":"quartile","value":17}]' display-threshold-title="true" threshold-config='{"max":{"color":"red","dashPattern":"5,0","title":"MAX","showThresholdBox":true,"displayTitle":true}}' x-axis-config='{"title":"Date"}' y-axis-config='{"title":"Single","titleTruncation":false,"unit":"F","axis1":{"title":"Temperature","titleTruncation":false,"unit":"C"}}' dynamic-menu-config='[{"name":"Delete","action":"function(data) {var conf = this.seriesConfig;delete conf[data.additionalDetail.name];this.set(\"seriesConfig\", {}); this.set(\"seriesConfig\", conf);}","eventName":"delete","icon":"fa-trash"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"fa-arrow-up"}]' toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"fa-leaf","subConfig":{"customClick":{"icon":"fa-coffee","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"fa-fire-extinguisher","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}' navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'></px-vis-timeseries>
+	  		<td ng-show="graphData && graphData.length > 0">
+	    	  <px-vis-timeseries prevent-resize="true" debounce-resize-timing="250" width="1024" height="576" padding-top="400" progressive-rendering-points-per-frame="16000" progressive-rendering-min-frames="1" chart-horizontal-alignment="center" chart-vertical-alignment="center" margin='{"top":20,"bottom":15,"left":65,"right":65}' tooltip-config='{}' register-config='{"type":"vertical","width":200}' selection-type="xy" chart-data="{{graphData}}" series-config='{"y0":{"name":"y0","x":"x","y":"y0","yAxisUnit":"F","axis":{"id":"axis1","side":"left","number":"1"}},"y1":{"name":"y1","x":"x","y":"y1","yAxisUnit":"Hz","axis":{"id":"axis2","side":"right","number":"1"}},"y2":{"name":"y2","x":"x","y":"y2","yMin":0.11,"yMax":1.1,"yAxisUnit":"C","axis":{"id":"axis3","side":"left","number":"2"}},"y3":{"name":"y3","x":"x","y":"y3","yAxisUnit":"F","axis":{"id":"axis4","side":"right","number":"2"}}}' chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}' event-data='[{"id":"123","time":1398714240000,"label":"Recalibrate"},{"id":"456","time":1397640960000,"label":"Fan start"},{"id":"789","time":1398126240000,"label":"Fan stop"},{"id":"333","time":1398956340000,"label":"Default"}]' event-config='{"Recalibrate":{"color":"blue","icon":"fa-camera","type":"fa","offset":[0,0],"lineColor":"red","lineWeight":0},"Fan start":{"color":"green","icon":"#","type":"unicode","offset":[1,0]},"Fan stop":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}' threshold-data='[{"for":"y0","type":"max","value":15.4784},{"for":"y0","type":"min","value":7.6531},{"for":"y0","type":"mean","value":15.330657585139331},{"for":"y1","type":"mean","value":75},{"for":"y1","type":"quartile","value":17}]' display-threshold-title="true" threshold-config='{"max":{"color":"red","dashPattern":"5,0","title":"MAX","showThresholdBox":true,"displayTitle":true}}' x-axis-config='{"title":"Date"}' y-axis-config='{"title":"Single","titleTruncation":false,"unit":"F","axis1":{"title":"Temperature","titleTruncation":false,"unit":"C"}}' dynamic-menu-config='[{"name":"Delete","action":"function(data) {var conf = this.seriesConfig;delete conf[data.additionalDetail.name];this.set(\"seriesConfig\", {}); this.set(\"seriesConfig\", conf);}","eventName":"delete","icon":"fa-trash"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"fa-arrow-up"}]' toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"fa-leaf","subConfig":{"customClick":{"icon":"fa-coffee","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"fa-fire-extinguisher","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}' navigator-config='{"xAxisConfig":{"tickFormat":"%b %d"}}'></px-vis-timeseries>
 	  		</td>
 	  </tr>
 	</table>
