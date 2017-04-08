@@ -139,14 +139,14 @@ public class SpringServiceImpl implements SpringService {
 		// Name of table to query
 		for(String s : tagNames)
 		{
-			tags.put("name", s);
-			// Order for sorted data
-			tags.put("order", "desc");
-			// Limit tag for limited data points
-			tags.put("limit", "10000");
-			// Add the tags to an array (needed for query)
-			parent.put(tags);
+			tags.put("name", "Engine Frequency");
 		}
+		// Order for sorted data
+		tags.put("order", "desc");
+		// Limit tag for limited data points
+		tags.put("limit", "10000");
+		// Add the tags to an array (needed for query)
+		parent.put(tags);
 		// Add array to JSON Body
 		jsonBody.put("tags", parent);
 		// Add start date
