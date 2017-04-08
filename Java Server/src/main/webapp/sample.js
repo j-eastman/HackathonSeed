@@ -154,6 +154,7 @@ app.controller('mainController', function($scope, $http) {
 		];
 
 	$scope.getLimitedDataPoints = getLimitedDataPoints;
+	$scope.getAggregateDataPoints = getAggregateDataPoints;
     $scope.token = "";
     
     /*
@@ -205,8 +206,44 @@ app.controller('mainController', function($scope, $http) {
     	
     }
     
+    function getAggregateDataPoints(){
+    	// test
+    	// Get the UAA authentication token
+    	$http.get('/springmvc-helloworld/getAuthToken/')
+    	
+    	// If the request was successful
+    	.success(function(authToken) {	
+    		// Log auth token in console
+    		//console.log(authToken);
+    		$scope.token = authToken;
+    		// Get data from predix using the token
+    		var data = {
+    				'tagNames': 'Engine Frequency,Engine Battery Voltage',
+    				'engineType': '/engine/049bb0c2-fca8-4fc6-af28-558c57a1de86'
+    		}
+    		var req = {
+    				 method: 'POST',
+    				 url: '/springmvc-helloworld/getAggregateDataPoints/',
+    				 headers: {
+    				   'Content-Type': 'application/json'
+    				 },
+    				 data: data
+    				}
+
+    				$http(req).then(function(data){console.log(data);}, function(data){console.log("Could not get the Predix data due to " + data);});
+        	
+    	})
+    	// Error from getAuthToken request
+    	.error(function(data) {
+    		// Log error in console
+    		console.log("Could not get the Auth Token due to " + data);
+    	}); 
+    	
+    }
+    
     // Call method on page load
   	getLimitedDataPoints();
+  	getAggregateDataPoints();
  
        
 	//end controller
